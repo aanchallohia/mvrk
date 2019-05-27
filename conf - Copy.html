@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="confApp">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>MVRK</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+</head>
+<body id="page-top" class="bod" ng-controller="confController">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <a class="navbar-brand" href="index.html"><img alt="MVRK" src="img/menu_white.png" class="hidden-xs"></img>
+        <img alt="MVRK" src="img/menu_white.png" class="hidden-md hidden-lg hidden-sm" width="300px" height="180px"></img></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+         <a href="#" id="login">LOGIN/REGISTER</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">ABOUT US <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+             <a href="#">WHY MVRK</a></li>
+             <a href="#">MVRK VS OTHERS</a></li>
+          </ul>
+        </li>
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">PC <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+             <a href="#">Gaming Desktops</a></li>
+             <a href="#">Proffesional Workstations</a></li>
+            
+             <a href="#">Custom Desktops(Coming Soon)</a></li>    
+          </ul>
+        </li>
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">SOLUTIONS <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+             <a href="#">Tuned for VR</a></li>
+             <a href="#">Home Computers</a></li>
+            
+             <a href="#">OverClocking</a></li>    
+             <a href="#">Liquid Cooling</a></li>    
+             <a href="#">Corporate Solutions</a></li>    
+          </ul>
+        </li>
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">PERIPHERALS <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+             <a href="#">MOUSE</a></li>
+             <a href="#">KEYBOARD</a></li>  
+             <a href="#">HEADPHONES</a></li>  
+          </ul>
+        </li>
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">SUPPORT <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+             <a href="#">FAQ</a></li>
+             <a href="#">REQUEST HELP</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">MY ACCOUNT <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+             <a href="#">Details</a></li>
+             <a href="#">My Cart</a></li>
+            <li class="divider"></li>
+             <a href="#">My Orders</a></li>
+            <li class="divider"></li>
+             <a href="#">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+<!--
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+      <ul class="nav navbar-nav">
+         <a href="#">Call Us Today! +91 8286242128|info@mvrktech.com</a></li>
+        <li class="pull-right"><a href="#">LOGIN/REGISTER</a></li>
+        <li class="dropdown pull-right">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">ABOUT US <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+             <a href="#">WHY MVRK</a></li>
+             <a href="#">MVRK VS OTHERS</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+-->
+  </div>
+</nav>
+<!--    Nav bar end-->
+
+<div>
+    <div class="row">
+        <div class="col-md-3 col-xs-3">
+            <div class="sidebar">
+            <ul class="categ">       
+                    <p style="margin-top:100px;"></p>
+                
+                   
+            </ul>
+        </div>
+        </div>
+        <div class="col-md-6 col-xs-9">
+            <p style="margin-top:100px;"></p>
+            <div ng-repeat="tab in tabs1" id={{tab.id}} ng-show="false"> 
+                        <p style="margin-top:10px"></p>
+<!--
+                            <div class="col-md-4 col-xs-5">
+                                <img src="img/cm-logo-200x200.jpg" class="img-rsponsive" style="margin-left:30px;">
+                            </div>
+-->
+<!--                        <div class="col-md-8 col-xs-7">-->
+                        <h1>{{tab.id}}</h1>
+                <div class="radio-options">
+                        <form name="configForm" action="formdata.js" method="post">
+                            <fieldset class="form-group">
+                                <div class="radio" ng-repeat="opt in tab.options">
+                                  <label ng-click="cal()">
+                                    <input type="radio" name={{opt.name}} id={{opt.id}} value={{opt.val}}>
+                                        {{opt.text}}
+                                  </label>
+                                </div>
+                              </fieldset>
+                    </div>
+                            </div>
+            <div ng-repeat="st in stors" id={{st.id}} > 
+                        <p style="margin-top:10px"></p>
+                <div class="radio-options">
+                            <fieldset class="form-group">
+                            <div class="radio" ng-repeat="option in st.options">
+                              <label ng-click="cal()">
+                                <input type="radio" name={{option.name}} id={{option.id}} value={{option.val}}>
+                                    {{option.text}}
+                              </label>
+                            </div>
+                          </fieldset>
+                </div>
+                        </div>
+            <div ng-repeat="tab in tabs2" id={{tab.id}}> 
+                    <p style="margin-top:30px"></p>
+                <h1>{{tab.id}}</h1>
+                    <div class="radio-options">
+                        <fieldset class="form-group">
+                            <div class="radio" ng-repeat="option in tab.options">
+                              <label ng-click="cal()">
+                                <input type="radio" name={{option.name}} id={{option.id}} value={{option.val}}>
+                                    {{option.text}}
+                              </label>
+                            </div>
+                          </fieldset>
+                    </div>
+                </div>
+        </div>
+        
+        
+        </div>
+    <div class="row">
+        <div class="col-md-9 col-sm-9 col-xs-9 custom-tab-container">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 custom-tab-menu">
+                <div class="list-group">
+                    
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 custom-tab">
+                <!-- flight section -->
+                <div class="custom-tab-content active" ng-repeat="tab in tabs1" id={{tab.id}}>
+                    <center>
+                       E
+                    </center>
+                </div>
+                <!-- train section -->
+                <div class="custom-tab-content">
+                    <center>
+                        D
+                    </center>
+                </div>
+                <!-- hotel search -->
+                <div class="custom-tab-content">
+                    <center>
+                        A
+                    </center>
+                </div>
+                <div class="custom-tab-content">
+                    <center>
+                        B
+                    </center>
+                </div>
+                <div class="custom-tab-content">
+                    C
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">  
+                <p style="margin-top:100px;"></p>
+            <div class="price-box hidden-xs">
+                    <h2>Price</h2>
+                    <h4 id="price">Rs.{{totalprice}}</h4>
+                    <button type="submit" class="btn btn-success">Checkout</button>
+                    </form>
+                </div>
+        </div>
+    </div>
+    
+
+    
+<!-- end Left to right-->
+ <footer class="footer"> 
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <p class="foot">© 2016 MVRK ,All Rights Reserved<br><br>
+
+Our computer systems are assembled carefully with Rigorously tested and built to last for the long run.They are not just randomly picked parts, but hours of research and hard work, providing the finest intricately built custom computer solutions in the industry by using the latest technology and supporting it with an optimum level of service to ensure customer satisfaction.Our rigs has the power to drive gaming on 4K displays graphics-intensive games and applications whether it’s 3D modelling or Virtual Reality .MVRK is a reference to the best hardware in the Indian market.
+                    </p>
+                </div>
+                <div class="pull-right">
+                    <p style="margin-left:20px;"></p>
+                    <ul class="list-inline social-buttons">
+                         <li><a href="#"><i class="fa fa-twitter fa-2x"></i></a>
+                        
+                         <li><a href="https://www.facebook.com/mvrktech/"><i class="fa fa-facebook fa-2x"></i></a>
+                        </li>
+                         <li><a href="https://www.youtube.com/channel/UC5nXS5EPG7hrbZPs7wfzlWg"><i class="fa fa-youtube fa-2x"></i></a>
+                        </li>
+                         <li><a href="https://www.instagram.com/mvrktech/"><i class="fa fa-instagram fa-2x"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="modal-login-label" aria-hidden="true">
+        	<div class="modal-dialog">
+        		<div class="modal-content">
+        			
+        			<div class="modal-header">
+        				<button type="button" class="close" data-dismiss="modal">
+        					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+        				</button>
+        				<h3 class="modal-title" id="modal-login-label">Login to MVRK</h3>
+        				<p>Enter your username and password to log on:</p>
+        			</div>
+        			
+        			<div class="modal-body">
+        				
+	                    <form role="form" action="" method="post" class="login-form">
+	                    	<div class="form-group">
+	                    		<label for="form-username">Email</label>
+	                        	<input type="text" name="form-username" placeholder="Email..." class="form-username form-control" id="form-username">
+	                        </div>
+	                        <div class="form-group">
+	                        	<label for="form-password">Password</label>
+	                        	<input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password">
+	                        </div>
+	                        <button type="submit" class="btn">Log in</button>
+                            
+                        </form>
+	                    <p class='create'><a href="#" id="create">Create an account</a></p>
+        			</div>
+        			
+        		</div>
+        	</div>
+        </div>
+    <div class="modal fade" id="register-login" tabindex="-1" role="dialog" aria-labelledby="modal-login-label" aria-hidden="true">
+        	<div class="modal-dialog">
+        		<div class="modal-content">
+        			
+        			<div class="modal-header">
+        				<button type="button" class="close" data-dismiss="modal">
+        					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+        				</button>
+        				<h3 class="modal-title" id="modal-login-label">Register at MVRK</h3>
+        			</div>
+        			
+        			<div class="modal-body">
+        				
+	                    <form role="form" action="" method="post" class="login-form">
+	                    	<div class="form-group">
+	                    		<label for="form-username">Name</label>
+	                        	<input type="text" name="form-username" placeholder="Name" class="form-username form-control" id="form-username">
+	                        </div>
+                            <div class="form-group">
+	                    		<label for="form-email">Email</label>
+	                        	<input type="email" name="form-username" placeholder="Email" class="form-username form-control" id="form-username">
+	                        </div>
+	                        <div class="form-group">
+	                        	<label for="form-password">Password</label>
+	                        	<input type="password" name="form-password" placeholder="Password" class="form-password form-control" id="form-password">
+	                        </div>
+	                        <button type="submit" class="btn-modal">Register</button>   
+                        </form>
+        			</div>
+        			
+        		</div>
+        	</div>
+        </div>
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+     <script src="js/bootstrap.min.js"></script>
+        <script src="js/angular.min.js"></script>
+       <script src="js/App/conf.js"></script>
+    <script src="js/modal.js"></script>
+</body>
+
+</html>

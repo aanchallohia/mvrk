@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="confApp">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>MVRK</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+</head>
+<body id="page-top" class="bod" ng-controller="confController">
+
+    <!-- Navigation -->
+     <div id="nav">
+    </div>
+<!--    Nav bar end-->
+<div class="">
+    <div class="row">
+        <p style="margin-top:100px;"></p>
+        <div class="col-md-9 col-sm-9 col-xs-9">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 custom-tab-menu">
+                <div class="list-group">
+                    <a href="#" class="list-group-item" ng-repeat="tab in tabs1">{{tab.id}}</a>
+                    <a href="#" class="list-group-item" ng-repeat="st in stors">{{st.id}}</a>
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 custom-tab">
+                <div class="info">
+                        <h1>Selected Options</h1>
+                        <h3>Product Name : {{productSelected.name}}</h3>
+                        <div class="row">
+                        <div class="col-md-6 col-xs-6">
+                            <ul class="specsname">
+                            <li>Processor</li>
+                            <li>Chipset</li>
+                            <li>GPU</li>
+                            <li>Storage</li>
+                            <li>Extra Storage</li>
+                            <li>Power Supply</li>
+                            <li>Liquid Cooler</li>
+                            <li>RAM</li>
+                            <li>Case</li>
+                            <li ng-repeat="name in addOnsName">{{name}}</li>
+                        </ul>
+                        </div>
+                        <div class="col-md-6 col-xs-6">
+                            <ul class="specs">
+                                <li>{{productSelected.cpu}}</li>
+                                <li>{{productSelected.chipset}}</li>
+                                <li>{{productSelected.gpu}}</li>
+                                <li>{{productSelected.storage}}</li>
+                                <li>{{productSelected.extraStorage}}</li>
+                                <li>{{productSelected.psu}}</li>
+                                <li>{{productSelected.liqCool}}</li>
+                                <li>{{productSelected.ram}}</li>
+                                <li>{{productSelected.productCase}}</li>
+                                <li ng-repeat="spec in addOns">{{spec}}</li>
+                            </ul>
+                        </div>
+                        </div>
+                
+                </div>
+                <div class="custom-tab-content" ng-repeat="tab in tabs1" id={{tab.id}}>
+                        <h1>{{tab.id}}</h1>
+                <div class="radio-options">
+                        <form name="configForm" action="formdata.js" method="post">
+                            <fieldset class="form-group">
+                                <div class="radio" ng-repeat="opt in tab.options">
+                                  <label ng-click="cal()">
+                                    <input type="radio" name={{opt.name}} id={{opt.id}} value={{opt.text}}>
+                                        {{opt.text}}
+                                  </label>
+                                </div>
+                              </fieldset>
+                    </div>
+                    
+                </div>
+                <div class="custom-tab-content" ng-repeat="st in stors" id={{st.id}} > 
+                        <p style="margin-top:10px"></p>
+                    <h1>{{st.id}}</h1>
+                <div class="radio-options">
+                            <fieldset class="form-group">
+                            <div class="radio" ng-repeat="option in st.options">
+                              <label ng-click="cal()">
+                                <input type="radio" name={{option.name}} id={{option.id}} value={{option.text}}>
+                                    {{option.text}}
+                              </label>
+                            </div>
+                          </fieldset>
+                </div>
+                        </div>  
+               
+            </div>
+        </div>
+             <div class="col-lg-2 col-md-2 col-sm-2">
+                <div class="price-box hidden-xs">
+                    <h2>Price</h2>
+                    <h4 id="price">Rs.{{totalprice}}</h4>
+                    <button type="submit" ng-click="out()" class="btn btn-success">Checkout</button>
+                    </form>
+                </div>
+            <div class="col-xs-2 hidden-lg hidden-md hidden-sm">
+                    <h2>Price</h2>
+                    <h4 id="price">Rs.{{totalprice}}</h4>
+                    <button type="submit" ng-click="out()" class="btn btn-success btn-xs">Checkout</button>
+                    </form>
+                </div>
+            </div>
+    </div>
+    <div class="row">
+        <p style="margin-top:100px;"></p>
+    </div>
+</div>
+    
+<!-- end Left to right-->
+ <div id="footer">
+</div>
+    <div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="modal-login-label" aria-hidden="true">
+        	<div class="modal-dialog">
+        		<div class="modal-content">
+        			
+        			<div class="modal-header">
+        				<button type="button" class="close" data-dismiss="modal">
+        					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+        				</button>
+        				<h3 class="modal-title" id="modal-login-label">Login to MVRK</h3>
+        				<p>Enter your username and password to log on:</p>
+        			</div>
+        			
+        			<div class="modal-body">
+        				
+	                    <form role="form" action="" method="post" class="login-form">
+	                    	<div class="form-group">
+	                    		<label for="form-username">Email</label>
+	                        	<input type="text" name="form-username" placeholder="Email..." class="form-username form-control" id="form-username">
+	                        </div>
+	                        <div class="form-group">
+	                        	<label for="form-password">Password</label>
+	                        	<input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password">
+	                        </div>
+	                        <button type="submit" class="btn">Log in</button>
+                            
+                        </form>
+	                    <p class='create'><a href="#" id="create">Create an account</a></p>
+        			</div>
+        			
+        		</div>
+        	</div>
+        </div>
+    <div class="modal fade" id="register-login" tabindex="-1" role="dialog" aria-labelledby="modal-login-label" aria-hidden="true">
+        	<div class="modal-dialog">
+        		<div class="modal-content">
+        			
+        			<div class="modal-header">
+        				<button type="button" class="close" data-dismiss="modal">
+        					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+        				</button>
+        				<h3 class="modal-title" id="modal-login-label">Register at MVRK</h3>
+        			</div>
+        			
+        			<div class="modal-body">
+        				
+	                    <form role="form" action="" method="post" class="login-form">
+	                    	<div class="form-group">
+	                    		<label for="form-username">Name</label>
+	                        	<input type="text" name="form-username" placeholder="Name" class="form-username form-control" id="form-username">
+	                        </div>
+                            <div class="form-group">
+	                    		<label for="form-email">Email</label>
+	                        	<input type="email" name="form-username" placeholder="Email" class="form-username form-control" id="form-username">
+	                        </div>
+	                        <div class="form-group">
+	                        	<label for="form-password">Password</label>
+	                        	<input type="password" name="form-password" placeholder="Password" class="form-password form-control" id="form-password">
+	                        </div>
+	                        <button type="submit" class="btn-modal">Register</button>   
+                        </form>
+        			</div>
+        			
+        		</div>
+        	</div>
+        </div>
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+     <script src="js/bootstrap.min.js"></script>
+    <script src="js/common.js"></script>
+        <script src="js/angular.min.js"></script>
+       <script src="js/checkout.js"></script>
+    <script src="js/modal.js"></script>
+</body>
+
+</html>
+<script>
+    $(document).ready(function() {
+    $("div.custom-tab-menu>div.list-group>a").click(function(e) {
+        e.preventDefault();
+        $(this).siblings('a.active').removeClass("active");
+        $(this).addClass("active");
+        var index = $(this).index();
+        $("div.custom-tab>div.custom-tab-content").removeClass("active");
+        $("div.custom-tab>div.custom-tab-content").eq(index).addClass("active");
+    });
+});
+</script>

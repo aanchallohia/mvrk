@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="confApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>MVRKtech</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="shortcut icon" href="img/mvrk.ico">
+</head>
+<body id="page-top" class="bod" ng-controller="mouseController">
+    <!-- Navigation -->
+     <div id="nav">
+    </div>
+    
+    <div class="outer">
+        
+        <p style="margin-top:100px"></p>
+        <div class="row">
+            <h1>MOUSE</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-5 grid">
+                <center><img ng-src={{mouse.imageURL}} class="img-responsive"></center>
+                <center><img ng-repeat="image in mouse.images" src={{image}} width="50px" height="50px" class="productImages" ng-click="changeImage(image)"></center>
+            </div>
+            <div class="col-md-6">
+                <h2>{{mouse.name}}</h2>
+                <hr>
+                <h3><p class="stock">{{mouse.stock}}</p></h3>
+                <p>Sold and Shipped by</p>
+                <hr>
+                <p class="product_info"><h4>{{mouse.info}}</h4></p>
+                
+                <div >
+                  <p class="productPrice"> &#8377; {{mouse.price}} </p>
+                </div>
+                <div class="buyButton">
+                <a class="btn btn-danger" role="button" ng-click="buy()">BUY NOW</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    
+     <div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="modal-login-label" aria-hidden="true">
+        	<div class="modal-dialog">
+        		<div class="modal-content">
+        			
+        			<div class="modal-header">
+        				<button type="button" class="close" data-dismiss="modal">
+        					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+        				</button>
+        				<h3 class="modal-title" id="modal-login-label">Login to MVRK</h3>
+        				<p>Enter your username and password to log on:</p>
+        			</div>
+        			
+        			<div class="modal-body">
+                    <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" class="login-form">
+<!--
+                        <?php
+   if ( isset($errMSG) ) {
+    
+    ?>
+-->
+    <div class="form-group">
+             <div class="alert alert-danger">
+    <span class="glyphicon glyphicon-info-sign"></span> <!-- <?php echo $errMSG; ?> -->
+                </div>
+             </div>
+<!--
+                <?php
+   }
+   ?>
+-->
+	                    	<div class="form-group">
+	                    		<label for="form-username">Email</label>
+	                        	<input type="email" name="email" placeholder="Email..." class="form-username form-control" value="" maxlength="40" >
+                                <span class="text-danger"><?php echo $emailError; ?></span>
+	                        </div>
+	                        <div class="form-group">
+                                
+	                        	<label for="form-password">Password</label>
+	                        	<input type="password" name="pass" placeholder="Password..." class="form-password form-control" maxlength="15">
+                                <span class="text-danger"><?php echo $passError; ?></span>
+	                        </div>
+	                        <button type="submit" class="btn-modal" name="loginBtn">Log in</button>
+                            
+                        </form>
+	                    <p class='create'><a href="#" id="create">Create an account</a></p>
+        			</div>
+        			
+        		</div>
+        	</div>
+        </div>
+    <div class="modal fade" id="register-login" tabindex="-1" role="dialog" aria-labelledby="modal-login-label" aria-hidden="true">
+        	<div class="modal-dialog">
+        		<div class="modal-content">
+        			
+        			<div class="modal-header">
+        				<button type="button" class="close" data-dismiss="modal">
+        					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+        				</button>
+        				<h3 class="modal-title" id="modal-login-label">Register at MVRK</h3>
+        			</div>
+        			
+        			<div class="modal-body">
+        				<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" class="login-form">
+                             <?php
+   if ( isset($errMSG) ) {
+    
+    ?>
+    <div class="form-group">
+             <div class="alert alert-<?php echo ($errTyp=="success") ? "success" : $errTyp; ?>">
+    <span class="glyphicon glyphicon-info-sign"></span> <?php echo $errMSG; ?>
+                </div>
+             </div>
+                <?php
+   }
+   ?>
+	                    	<div class="form-group">
+	                    		<label for="form-username">Name</label>
+                                <input type="text" name="name" class="form-control" placeholder="Enter Name" maxlength="50" value="<?php echo $name ?>" class="form-username form-control"/>
+	                        	<span class="text-danger"><?php echo $nameError; ?></span>
+	                        </div>
+                            <div class="form-group">
+	                    		<label for="form-email">Email</label>
+                                <input type="email" name="email" class="form-control" placeholder="Enter Your Email" maxlength="40" value="<?php echo $email ?>" class="form-username form-control" />
+	                        	<span class="text-danger"><?php echo $emailError; ?></span>
+	                        </div>
+	                        <div class="form-group">
+	                        	<label for="form-password">Password</label>
+                                <input type="password" name="pass" class="form-control" placeholder="Enter Password" maxlength="15" lass="form-password form-control"/>
+	                        	<span class="text-danger"><?php echo $passError; ?></span>
+	                        </div>
+	                        <button type="submit" class="btn-modal" name="signUpBtn">Register</button> 
+                            <p class='create'><a href="#" id="reg">Login</a></p>
+                        </form>
+        			</div>
+        			
+        		</div>
+        	</div>
+        </div>
+
+ <div id="footer">
+</div>
+    
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/checkout.js"></script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+</body>
+
+</html>

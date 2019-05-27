@@ -1,0 +1,88 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <a class="navbar-brand animated swing" href="index.php"><img alt="MVRK" src="img/menu_white.png" class="hidden-xs"></img>
+        <img alt="MVRK" src="img/menu_white.png" class="hidden-md hidden-lg hidden-sm" width="230px" height="70px"></img></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#" id="login">LOGIN/REGISTER</a></li>
+          <li><a href="http://www.portal.mvrktech.com">MVRK PORTAL</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">ABOUT US <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#why">WHY MVRK</a></li>
+            <li><a href="#">MVRK VS OTHERS</a></li>
+          </ul>
+        </li>
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">PC <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Gaming Desktops</a></li>
+            <li><a href="#">Proffesional Workstations</a></li>
+            
+            <li><a href="#">Custom Desktops(Coming Soon)</a></li>    
+          </ul>
+        </li>
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">SOLUTIONS <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Tuned for VR</a></li>
+            <li><a href="#">Home Computers</a></li>
+            <li><a href="#">OverClocking</a></li>    
+            <li><a href="#">Liquid Cooling</a></li>    
+            <li><a href="#">Corporate Solutions</a></li>    
+          </ul>
+        </li>
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">PERIPHERALS <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="mouseCatalog.html">MOUSE</a></li>
+            <li><a href="#">KEYBOARD</a></li>  
+            <li><a href="#">HEADPHONES</a></li>  
+          </ul>
+        </li>
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">SUPPORT <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="postQuery.php">REQUEST HELP</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">MY ACCOUNT <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Details</a></li>
+            <li><a href="checkout.php">My Cart</a></li>
+            <li class="divider"></li>
+            <li><a href="#">My Orders</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+<!--
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+      <ul class="nav navbar-nav">
+        <li><a href="#">Call Us Today! +91 8286242128|info@mvrktech.com</a></li>
+        <li class="pull-right"><a href="#">LOGIN/REGISTER</a></li>
+        <li class="dropdown pull-right">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">ABOUT US <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">WHY MVRK</a></li>
+            <li><a href="#">MVRK VS OTHERS</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+-->
+  </div>
+</nav>
